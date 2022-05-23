@@ -16,17 +16,18 @@ public class Base {
 	
 	public WebDriver launchBrowser() throws Exception {
 		PropertyReader prop = new PropertyReader();
-		String browserName = prop.readAProperty("browse");
+		String browserName = prop.readAProperty("browser");
 		if(browserName.equalsIgnoreCase("Chrome")) {
-			System.getProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
+//			System.setProperty("webdriver.chrome.driver", "C:\\Users\\LENOVO\\eclipse practice workspace\\CucumberProject\\drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		else if(browserName.equalsIgnoreCase("firefox")) {
-			System.getProperty("webdriver.gecko.driver", ".\\drivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", ".\\drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
-		if(browserName.equalsIgnoreCase("Edge")) {
-			System.getProperty("webdriver.edge.driver", ".\\drivers\\msedgedriver.exe");
+		else if(browserName.equalsIgnoreCase("Edge")) {
+			System.setProperty("webdriver.edge.driver", ".\\drivers\\msedgedriver.exe");
 			driver = new EdgeDriver();
 		}
 		else {
@@ -34,6 +35,10 @@ public class Base {
 		}
 		
 		return driver;
+	}
+	
+	public void quitBrowser() {
+		driver.quit();
 	}
 	
 	public static void testQuery(String env) {

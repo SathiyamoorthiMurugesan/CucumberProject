@@ -1,8 +1,8 @@
-package com.guru.parellelStepDefs;
+package com.guru99.parallelStepDefs;
 
 import io.cucumber.java.en.Given;
 
-public class parellel {
+public class parallel {
 	 @Given("Step from {string} in {string} feature file")
 	    public void step(String scenario, String file) {
 	        System.out.format("Thread ID - %2d - %s from %s feature file.\n",

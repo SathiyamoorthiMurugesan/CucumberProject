@@ -1,7 +1,6 @@
 package com.guru99.pages;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
